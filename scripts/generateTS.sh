@@ -39,10 +39,7 @@ replace_string_in_file() {
 	local file_path="$1"
 	local url="$2"
 
-	local old_string="\"\$ref\": \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url"\/"
-	local new_string="\"\$ref\": \".\/"
-
-	sed -i ''  "s/$old_string/$new_string/g" "$file_path"
+	sed -i ''  "s/\"\$ref\": \"https:\/\/api.dataplatform.ibm.com\/schemas\/common-pipeline\/"$url"\//\"\$ref\": \".\//g" "$file_path"
 }
 
 # Call the replace string for each of the types of child schema
